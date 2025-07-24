@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -147,7 +146,10 @@
         <div id="loading" class="hidden">Memuat data...</div>
         <div id="result" class="result-section">
             </div>
-        <button id="printPdfButton" class="hidden">Cetak PDF 🖨️</button>
+        
+    <button id="previewPdfButton" class="hidden" style="background-color:#28a745;margin-right:10px;">Preview PDF 👁️</button>
+    <button id="printPdfButton" class="hidden">Download PDF ⬇️</button>
+    
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -342,7 +344,7 @@
                 doc.text(`NIP. ${nipKepalaSekolah}`, pageWidth - marginX, finalY + 60, null, null, "right");
 
 
-                doc.output('dataurlnewwindow', {filename: `Data_Siswa_${currentStudentData['NISN'] || 'unknown'}.pdf`});
+                doc.save(`Data_Siswa_${currentStudentData['NISN'] || 'unknown'}.pdf`);
             }
         });
     </script>
